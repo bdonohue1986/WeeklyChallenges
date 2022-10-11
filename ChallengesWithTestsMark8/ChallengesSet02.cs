@@ -7,14 +7,14 @@ namespace ChallengesWithTestsMark8
     {
         public bool CharacterIsALetter(char c)
         {
-            throw new NotImplementedException();
+           return ;
         }
 
         public bool CountOfElementsIsEven(string[] vals)
         {
             throw new NotImplementedException();
         }
-
+ 
         public bool IsNumberEven(int number)
         {
             throw new NotImplementedException();
