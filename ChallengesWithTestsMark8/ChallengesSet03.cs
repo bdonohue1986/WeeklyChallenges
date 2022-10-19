@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ChallengesWithTestsMark8
 {
@@ -7,12 +8,41 @@ namespace ChallengesWithTestsMark8
     {
         public bool ArrayContainsAFalse(bool[] vals)
         {
-            throw new NotImplementedException();
+            if(vals.Count() == 0) { return false};
+            var lookingFor = false;
+            bool exist = Array.Exists(vals, element => element == lookingFor);
+            if (exist)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool IsSumOfOddsOdd(IEnumerable<int> numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null )
+            {
+                return false;
+            }
+            int answer = 0;
+            foreach (int i in numbers)
+            {
+                if ( i % 2 != 0) 
+                {
+                    answer += i;
+                }
+            }
+            if(answer %2 != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool PasswordContainsUpperLowerAndNumber(string password)
@@ -32,7 +62,9 @@ namespace ChallengesWithTestsMark8
 
         public decimal Divide(decimal dividend, decimal divisor)
         {
-            throw new NotImplementedException();
+            if(divisor == 0) { return 0; }
+           return dividend / divisor;
+          
         }
 
         public int LastMinusFirst(int[] nums)
@@ -45,9 +77,13 @@ namespace ChallengesWithTestsMark8
             throw new NotImplementedException();
         }
 
-        public void ChangeAllElementsToUppercase(string[] words)
+        public string ChangeAllElementsToUppercase(string[] words)
         {
-            throw new NotImplementedException();
+            foreach (string word in words)
+            {
+                word.ToUpper();
+            }
+                
         }
     }
 }
