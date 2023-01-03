@@ -8,17 +8,12 @@ namespace ChallengesWithTestsMark8
     {
         public bool ArrayContainsAFalse(bool[] vals)
         {
-            if(vals.Count() == 0) { return false};
-            var lookingFor = false;
-            bool exist = Array.Exists(vals, element => element == lookingFor);
-            if (exist)
+            for(int i = 0; i < vals.Length; i++)
             {
-                return true;
+                 if(vals[i] == false) { return true; }
+             
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         public bool IsSumOfOddsOdd(IEnumerable<int> numbers)
@@ -47,17 +42,42 @@ namespace ChallengesWithTestsMark8
 
         public bool PasswordContainsUpperLowerAndNumber(string password)
         {
-            throw new NotImplementedException();
+            var upper = false;
+            var lower = false;
+            var number = false;
+            bool answer = false;
+
+            for(int i = 0; i < password.Length; i++)
+            {
+                
+                if (char.IsLower(password[i]))
+                {
+                    lower = true;
+                }
+                if (char.IsUpper(password[i]))
+                {
+                    upper = true;
+                }
+                if (char.IsNumber(password[i]))
+                {
+                    number = true;
+                }
+                if(number == true && upper == true && lower == true) { answer = true; }
+
+
+            }
+            return answer;
+
         }
 
         public char GetFirstLetterOfString(string val)
         {
-            throw new NotImplementedException();
+            return val.First();
         }
 
         public char GetLastLetterOfString(string val)
         {
-            throw new NotImplementedException();
+            return val.Last();
         }
 
         public decimal Divide(decimal dividend, decimal divisor)
@@ -69,21 +89,28 @@ namespace ChallengesWithTestsMark8
 
         public int LastMinusFirst(int[] nums)
         {
-            throw new NotImplementedException();
+            var first = nums.First();
+            var last = nums.Last();
+            return last - first;
         }
 
         public int[] GetOddsBelow100()
         {
-            throw new NotImplementedException();
+            var odds = new List<int>();
+            for(int i = 1; i<100; i += 2) { odds.Add(i); }
+            return odds.ToArray();
         }
 
-        public string ChangeAllElementsToUppercase(string[] words)
+        public void ChangeAllElementsToUppercase(string[] words)
         {
-            foreach (string word in words)
-            {
-                word.ToUpper();
+           
+           for (int i = 0; i < words.Length; i++) 
+            { 
+               words[i]= words[i].ToUpper(); 
             }
-                
+
+            
+
         }
     }
 }
